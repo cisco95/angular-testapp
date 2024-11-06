@@ -17,6 +17,7 @@ export class TestServiceService {
   }
 
   getMoreStuff(): Observable<any> {
-    return this.http.get<any>(`/api/general/specific`)
+    return this.http.get<any>(`/api/specific`) // works
+    // return this.http.get<any>(`/api/general/specific`) //doesn't work
   }
 }
