@@ -25,7 +25,16 @@ const start = async () => {
         method: 'GET', 
         path: '/api/general/specific',
         handler: (req, h) => {
+            console.log("request received at /api/general/specific")
             return {"message": "Hello from /api/general/specific"}
+        }
+    })
+
+    server.route({
+        method: 'GET', 
+        path: '/{any*}',
+        handler: (req, h) => {
+            return h.response({"error": "hit the 'any' api route!"}).code(404);
         }
     })
 
