@@ -23,10 +23,11 @@ const start = async () => {
 
     server.route({
         method: 'GET', 
-        path: '/api/general/specific',
+        path: '/api/general/{id}',
         handler: (req, h) => {
-            console.log("request received at /api/general/specific")
-            return {"message": "Hello from /api/general/specific"}
+            const id = req.params.id.replace(/["']/g, "");
+            console.log("request received at /api/general/" + id)
+            return {"message": `Hello from /api/general/${id}`};
         }
     })
 

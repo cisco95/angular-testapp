@@ -9,7 +9,7 @@ export const routes: Routes = [
         pathMatch: 'full',
     },
     {
-        path: 'general/specific',
+        path: 'general/:id',
         component: SpecificComponent,
         pathMatch: 'full',
     }

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TestServiceService {
+  id!: String;
   
   constructor(
     private http: HttpClient,
@@ -16,8 +17,8 @@ export class TestServiceService {
     return this.http.get<any>(`/api/general`)
   }
 
-  getMoreStuff(): Observable<any> {
+  getMoreStuff(id: String): Observable<any> {
     // return this.http.get<any>(`/api/specific`) // works
-    return this.http.get<any>(`/api/general/specific`) //doesn't work
+    return this.http.get<any>(`/api/general/${id}`) //doesn't work
   }
 }
